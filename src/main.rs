@@ -23,6 +23,7 @@ use rustminify::{remove_docs, minify_file};
 #[command(author, version, about, long_about = None)]
 struct Cli {
     /// Path to the directory to traverse
+    #[arg(default_value = ".")]
     dir: PathBuf,
 
     /// Remove documentation before minifying
