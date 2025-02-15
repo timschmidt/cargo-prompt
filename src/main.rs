@@ -23,6 +23,22 @@ struct Cli {
 
 fn main() -> anyhow::Result<()> {
     let args = Cli::parse();
+    
+    // Attempt to load the project name from Cargo.toml
+    let cargo_toml_path = args.dir.join("Cargo.toml");
+    let project_name = if cargo_toml_path.exists() {
+        let contents = fs::read_to_string(&cargo_toml_path)?;
+        let parsed: toml::Value = toml::from_str(&contents)?;
+        // Grab the name from [package] table or default if missing
+        parsed
+            .get("package")
+            .and_then(|pkg| pkg.get("name"))
+            .and_then(|name| name.as_str())
+            .unwrap_or("Unnamed Project")
+            .to_owned()
+    } else {
+        "Unnamed Project".to_string()
+    };
 
     // We'll accumulate our output in a String, then print at the end
     let mut markdown_output = String::new();
@@ -62,7 +78,7 @@ fn main() -> anyhow::Result<()> {
     }
 
     // Print the final markdown document to stdout
-    println!("# Minified Rust Files\n");
+    println!("# {}\n", project_name);
     println!("{}", markdown_output);
 
     Ok(())
