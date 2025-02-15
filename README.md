@@ -1,5 +1,5 @@
 # cargo-prompt
-Collapse a rust project into a single minified markdown document for prompting.  Optionally remove documentation / comments.
+Collapse a rust project into a single minified markdown document for prompting.  Optionally remove comments / documentation.
 
 ## install
 
