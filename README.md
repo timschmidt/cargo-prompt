@@ -14,6 +14,33 @@ cd my_cargo_project/
 cargo prompt
 ```
 
+### example input
+```rust
+// Functions that "don't" return a value, actually return the unit type `()`
+fn fizzbuzz(n: u32) -> () {
+    if is_divisible_by(n, 15) {
+        println!("fizzbuzz");
+    } else if is_divisible_by(n, 3) {
+        println!("fizz");
+    } else if is_divisible_by(n, 5) {
+        println!("buzz");
+    } else {
+        println!("{}", n);
+    }
+}
+```
+
+### example output
+```markdown
+# fizzbuzz
+
+## ./fizzbuzz.rs
+
+```rust
+fn fizzbuzz(n:u32)->(){if is_divisible_by(n,15){println!("fizzbuzz");}else if is_divisible_by(n,3){println!("fizz");}else if is_divisible_by(n,5){println!("buzz");}else{println!("{}",n);}}
+```
+```
+
 ## remove comments / documentation
 
 ```shell
