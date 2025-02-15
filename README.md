@@ -27,3 +27,9 @@ cargo prompt -r
 cd my_cargo_project/
 cargo prompt > saved_prompt.txt
 ```
+
+## target specific directory
+
+```shell
+cargo prompt /path/to/src/
+```
