@@ -31,7 +31,7 @@ fn fizzbuzz(n: u32) -> () {
 ```
 
 ### example output
-```markdown
+````markdown
 # fizzbuzz
 
 ## ./fizzbuzz.rs
@@ -39,8 +39,7 @@ fn fizzbuzz(n: u32) -> () {
 ```rust
 fn fizzbuzz(n:u32)->(){if is_divisible_by(n,15){println!("fizzbuzz");}else if is_divisible_by(n,3){println!("fizz");}else if is_divisible_by(n,5){println!("buzz");}else{println!("{}",n);}}
 ```
-
-```
+````
 
 ## remove comments / documentation
 
