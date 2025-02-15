@@ -2,6 +2,11 @@
 name = "cargo-prompt"
 version = "0.1.0"
 edition = "2021"
+description = "Collapse a rust project into a single minified markdown file for prompting"
+authors = ["Timothy Schmidt <timschmidt@gmail.com>",]
+license = "MIT"
+repository = "https://github.com/timschmidt/cargo-prompt"
+readme = "readme.md"
 
 [dependencies]
 anyhow = "1.0.95"
