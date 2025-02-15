@@ -1,20 +1,7 @@
-// Cargo.toml (snippet of required dependencies)
-//
-// [dependencies]
-// clap = "4.2"         # or the latest clap 4.x
-// walkdir = "2.3"
-// syn = "2.0"          # For syn::parse_file
-// rustminify = "0.1"   # Example, actual version depends on your crate registry
-// anyhow = "1.0"       # for easy error handling (optional)
-
 use clap::Parser;
 use std::fs;
 use std::path::{Path, PathBuf};
-use walkdir::WalkDir;
-
-/// We assume `rustminify` provides these two functions:
-/// - remove_docs(syn::File) -> syn::File
-/// - minify_file(&syn::File) -> String
+use ignore::WalkBuilder;
 use rustminify::{remove_docs, minify_file};
 
 /// A small CLI application that traverses a directory for `.rs` files,
@@ -37,35 +24,39 @@ struct Cli {
 fn main() -> anyhow::Result<()> {
     let args = Cli::parse();
 
-    eprintln!("DEBUG: remove_docs = {:?}", args.remove_docs);
-    eprintln!("DEBUG: dir = {:?}", args.dir);
-
     // We'll accumulate our output in a String, then print at the end
     let mut markdown_output = String::new();
 
-    // Traverse the directory recursively using walkdir
-    for entry in WalkDir::new(&args.dir)
-        .into_iter()
-        .filter_map(Result::ok)
-        .filter(|e| e.file_type().is_file())
-    {
-        let path = entry.path();
-        if let Some(ext) = path.extension() {
-            if ext == "rs" {
-                // Process this .rs file
-                match process_rust_file(path, args.remove_docs) {
-                    Ok(minified) => {
-                        // Append a markdown section for each file
-                        markdown_output.push_str(&format!(
-                            "## {}\n\n```rust\n{}\n```\n\n",
-                            path.display(),
-                            minified
-                        ));
-                    }
-                    Err(e) => {
-                        eprintln!("Error processing {}: {}", path.display(), e);
+    // Build a walker that respects .gitignore files by default
+    let walker = WalkBuilder::new(&args.dir)
+        .git_ignore(true)  // enable .gitignore parsing
+        .build();
+
+    for result in walker {
+        match result {
+            Ok(entry) => {
+                // If it's a file and has .rs extension, process it
+                if entry.file_type().map_or(false, |ft| ft.is_file()) {
+                    let path = entry.path();
+                    if path.extension().and_then(|s| s.to_str()) == Some("rs") {
+                        match process_rust_file(path, args.remove_docs) {
+                            Ok(minified) => {
+                                markdown_output.push_str(&format!(
+                                    "## {}\n\n```rust\n{}\n```\n\n",
+                                    path.display(),
+                                    minified
+                                ));
+                            }
+                            Err(e) => {
+                                eprintln!("Error processing {}: {}", path.display(), e);
+                            }
+                        }
                     }
                 }
+            }
+            Err(e) => {
+                // If there's an error reading a directory entry, just print it
+                eprintln!("Error reading directory entry: {}", e);
             }
         }
     }
@@ -94,4 +85,3 @@ fn process_rust_file(path: &Path, strip_docs: bool) -> anyhow::Result<String> {
 
     Ok(minified)
 }
-

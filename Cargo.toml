@@ -1,6 +1,6 @@
 [package]
 name = "cargo-prompt"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 description = "Collapse a rust project into a single minified markdown file for prompting"
 authors = ["Timothy Schmidt <timschmidt@gmail.com>",]
@@ -11,6 +11,6 @@ readme = "README.md"
 [dependencies]
 anyhow = "1.0.95"
 clap = { version = "4.5.29", features = ["derive"] }
+ignore = "0.4.23"
 rustminify = "0.2.0"
 syn = { version = "1.0", features = ["parsing", "full"] }
-walkdir = "2.5.0"
