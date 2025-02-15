@@ -14,7 +14,7 @@ cd my_cargo_project/
 cargo prompt
 ```
 
-## remove documentation
+## remove comments / documentation
 
 ```shell
 cd my_cargo_project/
