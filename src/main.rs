@@ -22,8 +22,11 @@ use rustminify::{remove_docs, minify_file};
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
 struct Cli {
+    #[arg(value_name = "cargo-command")]
+    command: String,
+
     /// Path to the directory to traverse
-    #[arg(default_value = ".")]
+    #[arg(default_value = ".", value_name = "DIR")]
     dir: PathBuf,
 
     /// Remove documentation before minifying
@@ -33,6 +36,9 @@ struct Cli {
 
 fn main() -> anyhow::Result<()> {
     let args = Cli::parse();
+
+    eprintln!("DEBUG: remove_docs = {:?}", args.remove_docs);
+    eprintln!("DEBUG: dir = {:?}", args.dir);
 
     // We'll accumulate our output in a String, then print at the end
     let mut markdown_output = String::new();
