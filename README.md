@@ -15,6 +15,7 @@ cargo prompt
 ```
 
 ### example input
+fizzbuzz/fizzbuzz.rs:
 ```rust
 // Functions that "don't" return a value, actually return the unit type `()`
 fn fizzbuzz(n: u32) -> () {
