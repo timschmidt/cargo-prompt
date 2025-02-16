@@ -1,6 +1,6 @@
 [package]
 name = "cargo-prompt"
-version = "0.1.3"
+version = "0.1.4"
 edition = "2021"
 description = "Collapse a rust project into a single minified markdown file for prompting"
 authors = ["Timothy Schmidt <timschmidt@gmail.com>",]
