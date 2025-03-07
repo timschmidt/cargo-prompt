@@ -34,6 +34,12 @@ cargo prompt > saved_prompt.txt
 cargo prompt /path/to/src/
 ```
 
+## minify and include javascript as well as rust
+
+```shell
+cargo prompt -j
+```
+
 ## example input
 fizzbuzz/fizzbuzz.rs:
 ```rust
