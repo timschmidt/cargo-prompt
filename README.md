@@ -1,5 +1,5 @@
 # cargo-prompt
-Collapse a rust project into a single minified markdown document for prompting.  Optionally remove comments / documentation.  Items in .gitignore are automatically excluded.
+Recursively minify and concatenate a rust project into a markdown document for llm prompting.  Optionally remove comments / documentation.  Items in .gitignore are automatically excluded.
 
 ## install
 
