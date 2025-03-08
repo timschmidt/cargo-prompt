@@ -1,8 +1,8 @@
 [package]
 name = "cargo-prompt"
-version = "0.1.5"
+version = "0.1.6"
 edition = "2024"
-description = "Recursively minify and concatenate a rust project into a markdown document for llm prompting"
+description = "Recursively minify and concatenate source code into a markdown document for llm prompting"
 authors = ["Timothy Schmidt <timschmidt@gmail.com>",]
 license = "MIT"
 repository = "https://github.com/timschmidt/cargo-prompt"
