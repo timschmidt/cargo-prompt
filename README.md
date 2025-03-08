@@ -104,7 +104,7 @@ cargo prompt --go
 
 ### r
 ```shell
-cargo prompt -r
+cargo prompt --r
 ```
 
 ### matlab
