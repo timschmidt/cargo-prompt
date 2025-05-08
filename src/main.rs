@@ -151,7 +151,7 @@ fn main() -> anyhow::Result<()> {
                         match process_rust_file(path, args.remove_docs) {
                             Ok(minified) => {
                                 markdown_output.push_str(&format!(
-                                    "## {}\n\n```rust\n{}\n```\n\n",
+                                    "## {}\n```rust\n{}\n```\n",
                                     path.display(),
                                     minified
                                 ));
@@ -167,7 +167,7 @@ fn main() -> anyhow::Result<()> {
                         match process_javascript_file(path, args.remove_docs) {
                             Ok(minified) => {
                                 markdown_output.push_str(&format!(
-                                    "## {}\n\n```javascript\n{}\n```\n\n",
+                                    "## {}\n```javascript\n{}\n```\n",
                                     path.display(),
                                     minified
                                 ));
@@ -195,7 +195,7 @@ fn main() -> anyhow::Result<()> {
                         let minified = remove_whitespace(&stripped);
                         
                         markdown_output.push_str(&format!(
-                            "## {}\n\n```python\n{}\n```\n\n",
+                            "## {}\n```python\n{}\n```\n",
                             path.display(),
                             minified
                         ));
@@ -218,7 +218,7 @@ fn main() -> anyhow::Result<()> {
                         let minified = remove_whitespace(&stripped);
                         
                         markdown_output.push_str(&format!(
-                            "## {}\n\n```java\n{}\n```\n\n",
+                            "## {}\n```java\n{}\n```\n",
                             path.display(),
                             minified
                         ));
@@ -253,7 +253,7 @@ fn main() -> anyhow::Result<()> {
                         let minified = remove_whitespace(&stripped);
                         
                         markdown_output.push_str(&format!(
-                            "## {}\n\n```c/c++/obj-c\n{}\n```\n\n",
+                            "## {}\n```c/c++/obj-c\n{}\n```\n",
                             path.display(),
                             minified
                         ));
@@ -288,7 +288,7 @@ fn main() -> anyhow::Result<()> {
                         let minified = remove_whitespace(&stripped);
                     
                         markdown_output.push_str(&format!(
-                            "## {}\n\n```csharp\n{}\n```\n\n",
+                            "## {}\n```csharp\n{}\n```\n",
                             path.display(),
                             minified
                         ));
@@ -318,7 +318,7 @@ fn main() -> anyhow::Result<()> {
                         let minified = remove_whitespace(&stripped);
                     
                         markdown_output.push_str(&format!(
-                            "## {}\n\n```php\n{}\n```\n\n",
+                            "## {}\n```php\n{}\n```\n",
                             path.display(),
                             minified
                         ));
@@ -348,7 +348,7 @@ fn main() -> anyhow::Result<()> {
                         let minified = remove_whitespace(&stripped);
                     
                         markdown_output.push_str(&format!(
-                            "## {}\n\n```ruby\n{}\n```\n\n",
+                            "## {}\n```ruby\n{}\n```\n",
                             path.display(),
                             minified
                         ));
@@ -378,7 +378,7 @@ fn main() -> anyhow::Result<()> {
                         let minified = remove_whitespace(&stripped);
                     
                         markdown_output.push_str(&format!(
-                            "## {}\n\n```swift\n{}\n```\n\n",
+                            "## {}\n```swift\n{}\n```\n",
                             path.display(),
                             minified
                         ));
@@ -415,7 +415,7 @@ fn main() -> anyhow::Result<()> {
                         let minified = remove_whitespace(&stripped);
                     
                         markdown_output.push_str(&format!(
-                            "## {}\n\n```typescript\n{}\n```\n\n",
+                            "## {}\n```typescript\n{}\n```\n",
                             path.display(),
                             minified
                         ));
@@ -448,7 +448,7 @@ fn main() -> anyhow::Result<()> {
                         let minified = remove_whitespace(&stripped);
                     
                         markdown_output.push_str(&format!(
-                            "## {}\n\n```kotlin\n{}\n```\n\n",
+                            "## {}\n```kotlin\n{}\n```\n",
                             path.display(),
                             minified
                         ));
@@ -478,7 +478,7 @@ fn main() -> anyhow::Result<()> {
                         let minified = remove_whitespace(&stripped);
                     
                         markdown_output.push_str(&format!(
-                            "## {}\n\n```go\n{}\n```\n\n",
+                            "## {}\n```go\n{}\n```\n",
                             path.display(),
                             minified
                         ));
@@ -512,7 +512,7 @@ fn main() -> anyhow::Result<()> {
                         let minified = remove_whitespace(&stripped);
                     
                         markdown_output.push_str(&format!(
-                            "## {}\n\n```r\n{}\n```\n\n",
+                            "## {}\n```r\n{}\n```\n",
                             path.display(),
                             minified
                         ));
@@ -542,7 +542,7 @@ fn main() -> anyhow::Result<()> {
                         let minified = remove_whitespace(&stripped);
                     
                         markdown_output.push_str(&format!(
-                            "## {}\n\n```matlab\n{}\n```\n\n",
+                            "## {}\n```matlab\n{}\n```\n",
                             path.display(),
                             minified
                         ));
@@ -573,7 +573,7 @@ fn main() -> anyhow::Result<()> {
                         let minified = remove_whitespace(&stripped);
                     
                         markdown_output.push_str(&format!(
-                            "## {}\n\n```vbnet\n{}\n```\n\n",
+                            "## {}\n```vbnet\n{}\n```\n",
                             path.display(),
                             minified
                         ));
@@ -603,7 +603,7 @@ fn main() -> anyhow::Result<()> {
                         let minified = remove_whitespace(&stripped);
                     
                         markdown_output.push_str(&format!(
-                            "## {}\n\n```scala\n{}\n```\n\n",
+                            "## {}\n```scala\n{}\n```\n",
                             path.display(),
                             minified
                         ));
@@ -636,7 +636,7 @@ fn main() -> anyhow::Result<()> {
                         let minified = remove_whitespace(&stripped);
                     
                         markdown_output.push_str(&format!(
-                            "## {}\n\n```perl\n{}\n```\n\n",
+                            "## {}\n```perl\n{}\n```\n",
                             path.display(),
                             minified
                         ));
@@ -666,7 +666,7 @@ fn main() -> anyhow::Result<()> {
                         let minified = remove_whitespace(&stripped);
                     
                         markdown_output.push_str(&format!(
-                            "## {}\n\n```dart\n{}\n```\n\n",
+                            "## {}\n```dart\n{}\n```\n",
                             path.display(),
                             minified
                         ));
@@ -701,7 +701,7 @@ fn main() -> anyhow::Result<()> {
                         let minified = remove_whitespace(&stripped);
                     
                         markdown_output.push_str(&format!(
-                            "## {}\n\n```groovy\n{}\n```\n\n",
+                            "## {}\n```groovy\n{}\n```\n",
                             path.display(),
                             minified
                         ));
@@ -731,7 +731,7 @@ fn main() -> anyhow::Result<()> {
                         let minified = remove_whitespace(&stripped);
                     
                         markdown_output.push_str(&format!(
-                            "## {}\n\n```julia\n{}\n```\n\n",
+                            "## {}\n```julia\n{}\n```\n",
                             path.display(),
                             minified
                         ));
@@ -764,7 +764,7 @@ fn main() -> anyhow::Result<()> {
                         let minified = remove_whitespace(&stripped);
                     
                         markdown_output.push_str(&format!(
-                            "## {}\n\n```haskell\n{}\n```\n\n",
+                            "## {}\n```haskell\n{}\n```\n",
                             path.display(),
                             minified
                         ));
@@ -798,7 +798,7 @@ fn main() -> anyhow::Result<()> {
                         let minified = remove_whitespace(&stripped);
                     
                         markdown_output.push_str(&format!(
-                            "## {}\n\n```bash\n{}\n```\n\n",
+                            "## {}\n```bash\n{}\n```\n",
                             path.display(),
                             minified
                         ));
@@ -828,7 +828,7 @@ fn main() -> anyhow::Result<()> {
                         let minified = remove_whitespace(&stripped);
                     
                         markdown_output.push_str(&format!(
-                            "## {}\n\n```lua\n{}\n```\n\n",
+                            "## {}\n```lua\n{}\n```\n",
                             path.display(),
                             minified
                         ));
@@ -844,7 +844,7 @@ fn main() -> anyhow::Result<()> {
     }
 
     // Print the final markdown document to stdout
-    println!("# {}\n", project_name);
+    println!("# {}", project_name);
     println!("{}", markdown_output);
 
     Ok(())

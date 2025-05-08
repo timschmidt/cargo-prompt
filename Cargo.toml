@@ -1,6 +1,6 @@
 [package]
 name = "cargo-prompt"
-version = "0.1.6"
+version = "0.1.7"
 edition = "2024"
 description = "Recursively minify and concatenate source code into a markdown document for llm prompting"
 authors = ["Timothy Schmidt <timschmidt@gmail.com>",]
